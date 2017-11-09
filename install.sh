@@ -128,7 +128,7 @@ free=$(df -k / | tail -1 | awk '{print $4}')
 
 #Check dependancies
 if [[ $free -lt 25000000  ]]; then
-	echo -e '$warn WARNING: Expand root FS or you will only be able to store 10 songs!'
+	echo -e "$warn WARNING: Expand root FS or you will only be able to store 10 songs!"
 fi
 
 
