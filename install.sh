@@ -94,7 +94,7 @@ echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
 echo $file
 	sed -i $'/\/\/ sort Queue entries/ i\
-         // save youtube to playlist\
+        // save youtube to playlist\
         $(\'#modal-pl-youtube-btn\').click(function(){\
             var playlistname = $(\'#pl-video-url\').val();\
             if (playlistname != null) {\
