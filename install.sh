@@ -93,7 +93,7 @@ sed -i -e $'/<button id="pl-manage-save" class="btn btn-default" type="button" t
 echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
 echo $file
-	sed -i $'/sort queue entries/ i\
+	sed -i $'/\/\/ sort Queue entries/ i\
          // save youtube to playlist\
         $(\'#modal-pl-youtube-btn\').click(function(){\
             var playlistname = $(\'#pl-video-url\').val();\
