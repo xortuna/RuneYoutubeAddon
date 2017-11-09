@@ -10,4 +10,4 @@ Simply paste a youtube video URL or a youtube playlist URL, wait for them to dow
 This requires the MPM Upgrade to be installed first
 Its a good idea to store to expand the filesystem or you'll only be able to store 10 songs...
 
-(http://i.imgur.com/ZMBU3ft.png "Youtube addon")
+![some image](http://i.imgur.com/ZMBU3ft.png "Youtube addon")
