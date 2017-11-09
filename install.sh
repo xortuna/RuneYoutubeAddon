@@ -142,7 +142,8 @@ chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
 
 
-wgetnc $gitpath/cover.jpg -P /mnt/MPD/LocalStorage/Youtube
+echo -e "$bar Getting album art..."
+wgetnc $gitpath/cover.png -P /mnt/MPD/LocalStorage/Youtube
 
 
 
