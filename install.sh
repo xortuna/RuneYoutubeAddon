@@ -95,8 +95,8 @@ file=/srv/http/assets/js/runeui.js
 echo $file
 	sed -i $'/sort queue entries/ i\
          // save youtube to playlist\
-        $('#modal-pl-youtube-btn').click(function(){\
-            var playlistname = $('#pl-video-url').val();\
+        $(\'#modal-pl-youtube-btn\').click(function(){\
+            var playlistname = $(\'#pl-video-url\').val();\
             if (playlistname != null) {\
              var encstream = encodeURI(playlistname);  //url encode\
              encstream = encodeURIComponent(encstream); //encodes also ? & ... chars\
@@ -121,6 +121,8 @@ chown http:http /mnt/MPD/LocalStorage/Youtube
 
 ### template - function: save version to database, finish message
 installfinish $@
+
+clearcache
 
 # extra info if any
 title -nt "extra info"
