@@ -142,6 +142,9 @@ chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
 
 
+wgetnc $gitpath/cover.jpg -P /mnt/MPD/LocalStorage/Youtube
+
+
 
 
 # end custom script --------------------------------------------------------------------------------<<<
