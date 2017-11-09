@@ -1,5 +1,5 @@
 # RuneYoutubeAddon
-YouTube addon for RuneAudio
+YouTube [addon](https://github.com/rern/RuneAudio_Addons) for [RuneAudio](https://runeaudio.com/)
 
 This adds a youtube button to the Playlist screen of the rune audio player
 
