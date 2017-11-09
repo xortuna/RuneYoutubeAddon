@@ -62,7 +62,7 @@ youtube-dl --no-mtime --restrict-filenames --ignore-errors -o \'/mnt/MPD/LocalSt
 
 (IFS=\'
 \'
-for x in $(find /mnt/MPD/LocalStorage/Youtube/ -type f -name *.description -mmin -15); do VV=$(basename "$x" .description) && mpc add "LocalStorage/Youtube/$VV.m4a" && echo $VV; done)
+for x in $(find /mnt/MPD/LocalStorage/Youtube/ -type f -name *.description -mmin -15); do VV=$(basename "$x" .description) && mpc add "LocalStorage/Youtube/$VV.m4a" && echo $VV && rm $x; done)
 #Find all descriptions less than 15 min modifcation time then add to playlist' >> /usr/local/bin/tubeplaylist
 
 
