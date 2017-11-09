@@ -18,12 +18,12 @@ getinstallzip
 ### template - function: (optional) rank miror servers and 'pacman -Sy' before install packages
 rankmirrors
 
-### PACMAN ### }
-echo -e "$bar youtube-dl package ..."
+### PACMAN ### 
+echo -e "$bar Installing youtube-dl..."
 pacman -S --noconfirm youtube-dl
 
-### PHP Script ###}
-echo -e "$bar youtube php script..."
+### PHP Script ###
+echo -e "$bar Creating web files..."
 echo '<?php
 try {
    set_time_limit(0);
@@ -51,11 +51,10 @@ catch (Exception $e) {
 ?>' >> /srv/http/youtube.php
 
 ### Tube ###
-echo -e "$bar youtube bash script..."
+echo -e "$bar Creasting bash scripts..."
 echo $'#!/bin/bash
 youtube-dl --no-mtime --restrict-filenames -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 && mpc update --wait LocalStorage/Youtube && VV=$(ls /mnt/MPD/LocalStorage/Youtube/*.description -t | head -n1) && VV=$(basename $VV .description) && mpc add "LocalStorage/Youtube/$VV.m4a" && echo $VV && chown -R http:http /mnt/MPD/LocalStorage/Youtube/$VV.*' >> /usr/local/bin/tube
 ### Tube playlist ###
-echo -e "$bar youtube playlist script..."
 echo $'#!/bin/bash
 youtube-dl --no-mtime --restrict-filenames --ignore-errors -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 && mpc update --wait LocalStorage/Youtube
 
@@ -65,7 +64,7 @@ for x in $(find /mnt/MPD/LocalStorage/Youtube/ -type f -name *.description -mmin
 #Find all descriptions less than 15 min modifcation time then add to playlist' >> /usr/local/bin/tubeplaylist
 
 
-echo -e "$bar Modify files ..."
+echo -e "$bar Patching files ..."
 file=/srv/http/app/templates/playback.php
 echo $file
 sed -i -e $'/<button id="pl-manage-save" class="btn btn-default" type="button" title="Save current queue as playlist" data-toggle="modal" data-target="#modal-pl-save"><i class="fa fa-save"><\/i><\/button>/ a\
@@ -93,7 +92,6 @@ sed -i -e $'/<button id="pl-manage-save" class="btn btn-default" type="button" t
 </div>\
 <!-- END_RUNE_YOUTUBE_MOD -->' $file
 
-echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
 echo $file
 	sed -i $'/\/\/ sort Queue entries/ i\
@@ -110,9 +108,11 @@ echo $file
 		//END_RUNE_YOUTUBE_MOD' $file
 			
 			
-echo -e "$bar Masking youtube directory ..."
-mkdir /mnt/MPD/LocalStorage/Youtube
-echo -e "$bar Setting permissions..."
+echo -e "$bar Creating YouTube storage directory ..."
+dir=/mnt/MPD/LocalStorage/Youtube
+echo $dir
+mkdir $dir
+echo -e "$bar Updating file permissions..."
 chmod 777 /usr/local/bin/tube
 chmod 777 /usr/local/bin/tubeplaylist
 chmod 777 /srv/http/youtube.php
@@ -121,6 +121,13 @@ chown http:http /srv/http/youtube.php
 chown http:http /usr/local/bin/tube
 chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
+
+free = df -k / | tail -1 | awk '{print $4}'
+#Check dependancies
+if [[ $free -lt 250000  ]]; then
+	echo '$warn WARNING: Expand root FS or you will only be able to store 10 songs!'
+fi
+
 
 # end custom script --------------------------------------------------------------------------------<<<
 
