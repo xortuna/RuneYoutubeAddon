@@ -23,13 +23,13 @@ rm -v /usr/local/bin/tubeplaylist
 echo -e "$bar Restore files ..."
 file=/srv/http/app/templates/playback.php
 echo $file
-sed -i $'/<!-- RUNE_YOUTUBE_MOD -->,<!-- END_RUNE_YOUTUBE_MOD -->/ d' $file
+sed -i $'/<!-- RUNE_YOUTUBE_MOD -->/,/<!-- END_RUNE_YOUTUBE_MOD -->/ d' $file
 
 echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
 echo $file
-	sed -i $'/\/\/RUNE_YOUTUBE_MOD/,\/\/END_RUNE_YOUTUBE_MOD/ d' $file
-		
+	sed -i $'/\/\/RUNE_YOUTUBE_MOD/,/\/\/END_RUNE_YOUTUBE_MOD/ d' $file
+
 
 echo -e "$bar Removing youtube directory ..."
 rm -r /mnt/MPD/LocalStorage/Youtube
