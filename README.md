@@ -1,10 +1,10 @@
 # RuneYoutubeAddon
-YouTube [addon](https://github.com/rern/RuneAudio_Addons) for [RuneAudio](https://runeaudio.com/)
+YouTube [addon](https://github.com/rern/RuneAudio_Addons) for [RuneAudio](http://runeaudio.com/)
 
-This adds a youtube button to the Playlist screen of the rune audio player
+This adds a youtube button to the Playlist screen of the rune audio player, simply paste a youtube video URL or a youtube playlist URL, wait for them to download, and these songs will be added to your playlist.
 
-Simply paste a youtube video URL or a youtube playlist URL, wait for them to download, and these songs will be added to your playlist.
-
+## Installation
+Available via the rune Audio Addons menu 
 
 ## Please note:
 This requires the MPM Upgrade to be installed first
