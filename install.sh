@@ -18,6 +18,11 @@ getinstallzip
 ### template - function: (optional) rank miror servers and 'pacman -Sy' before install packages
 rankmirrors
 
+if ! [ -x "$(command -v ffmpeg)" ]; then
+  echo '$warn Error: ffmpeg is not installed. Install MPM Upgrade from addons menu' >&2
+  exit 1
+fi
+
 ### PACMAN ### 
 echo -e "$bar Installing youtube-dl..."
 pacman -S --noconfirm youtube-dl
