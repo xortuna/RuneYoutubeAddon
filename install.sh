@@ -68,9 +68,9 @@ for x in $(find /mnt/MPD/LocalStorage/Youtube/ -type f -name *.description -mmin
 echo -e "$bar Modify files ..."
 file=/srv/http/app/templates/playback.php
 echo $file
-	sed -i -e $'_<button id="pl-manage-save" class="btn btn-default" type="button" title="Save current queue as playlist" data-toggle="modal" data-target="#modal-pl-save"><i class="fa fa-save"></i></button>_ i\
+	sed -i -e $'/<button id="pl-manage-save" class="btn btn-default" type="button" title="Save current queue as playlist" data-toggle="modal" data-target="#modal-pl-save"><i class="fa fa-save"><\/i><\/button>/ a\
 			<button id="pl-import-youtube" class="btn btn-default" type="button" title="Import a playlist or video from youtube." data-toggle="modal" data-target="#modal-pl-youtube"><i class="fa fa-youtube-play"></i></button>'
--e $'_<div id="modal-pl-save" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-pl-save-label" aria-hidden="true">_ i\
+-e $'/<div id="modal-pl-save" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-pl-save-label" aria-hidden="true">/ i\
 <div id="modal-pl-youtube" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-pl-youtube-label" aria-hidden="true">\
     <div class="modal-dialog">\
         <div class="modal-content">\
@@ -94,7 +94,7 @@ echo $file
 echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
 echo $file
-	sed -i $'_// sort queue entries_ i\
+	sed -i $'/sort queue entries/ i\
          // save youtube to playlist\
         $('#modal-pl-youtube-btn').click(function(){\
             var playlistname = $('#pl-video-url').val();\
