@@ -18,7 +18,7 @@ getinstallzip
 ### template - function: (optional) rank miror servers and 'pacman -Sy' before install packages
 rankmirrors
 
-command -v foo >/dev/null 2>&1 || { echo -e "$bar ERROR: ffmpeg is not installed, please run the MPM upgrade addon first." >&2; exit 1; }
+command -v foo >/dev/null 2>&1 || { echo -e "$warn ERROR: ffmpeg is not installed, please run the MPM upgrade addon first." >&2; exit 1; }
 
 ### PACMAN ### 
 echo -e "$bar Installing youtube-dl..."
@@ -128,7 +128,7 @@ free=$(df -k / | tail -1 | awk '{print $4}')
 echo $free
 #Check dependancies
 if [[ $free -lt 2500000  ]]; then
-	echo '$warn WARNING: Expand root FS or you will only be able to store 10 songs!'
+	echo -e '$warn WARNING: Expand root FS or you will only be able to store 10 songs!'
 fi
 
 
