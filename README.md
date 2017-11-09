@@ -6,9 +6,9 @@ This adds a youtube button to the Playlist screen of the rune audio player, simp
 ## Installation
 Available via the rune Audio Addons menu 
 
-### Please note
-* This requires the MPM Upgrade to be installed first
+## Requirements
+* MPC Upgrade should be installed first
 
-* Its a good idea to store to expand the filesystem or you'll only be able to store 10 songs...
+* Expanded filesystem (or you'll only be able to store 10 songs)
 
 ![some image](http://i.imgur.com/ZMBU3ft.png "Youtube addon")
