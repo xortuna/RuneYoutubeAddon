@@ -18,10 +18,7 @@ getinstallzip
 ### template - function: (optional) rank miror servers and 'pacman -Sy' before install packages
 rankmirrors
 
-if ! [ -x "$(command -v ffmpe)" ]; then
-  echo '$warn Error: ffmpeg is not installed. Install MPM Upgrade from addons menu' >&2
-  exit 1
-fi
+command -v foo >/dev/null 2>&1 || { echo "ERROR: ffmpeg is not installed, please run the MPM upgrade addon first." >&2; exit 1; }
 
 ### PACMAN ### 
 echo -e "$bar Installing youtube-dl..."
@@ -127,7 +124,7 @@ chown http:http /usr/local/bin/tube
 chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
 
-free = df -k / | tail -1 | awk '{print $4}'
+free=$(df -k / | tail -1 | awk '{print $4}')
 echo $free
 #Check dependancies
 if [[ $free -lt 2500000  ]]; then
