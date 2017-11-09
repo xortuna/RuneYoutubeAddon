@@ -98,16 +98,33 @@ file=/srv/http/assets/js/runeui.js
 echo $file
 	sed -i $'/\/\/ sort Queue entries/ i\
         //RUNE_YOUTUBE_MOD\
-		// save youtube to playlist\
+        // save youtube to playlist\
         $(\'#modal-pl-youtube-btn\').click(function(){\
             var playlistname = $(\'#pl-video-url\').val();\
             if (playlistname != null) {\
              var encstream = encodeURI(playlistname);  //url encode\
              encstream = encodeURIComponent(encstream); //encodes also ? & ... chars\
-             $.get("youtube.php?url=" + encstream);\
-        }\
+            if(encstream.indexOf("playlist") !== -1)\
+            {\
+                renderMSG( ([{\'title\': \'YouTube\', \'text\': \'Requesting playlist...\', \'icon\': \'fa fa-cog fa-spin\', \'delay\': 3000 }]) );\
+            }\
+            else\
+            {\
+                renderMSG( ([{\'title\': \'YouTube\', \'text\': \'Fetching video...\', \'icon\': \'fa fa-cog fa-spin\', \'delay\': 5000 }]) );\
+            }\
+             $.get("youtube.php?url=" + encstream, function( data ) {\
+               if(data.indexOf("playlist") !== -1)\
+               {\
+                   renderMSG( ([{\'title\': \'YouTube\', \'text\': \'Downloading playlist...\', \'icon\': \'fa fa-check\', \'delay\': 6000 }]) );\
+               }\
+               else\
+               {\
+                   renderMSG( ([{\'title\': \'Added to queue\', \'text\': \'YouTube video\', \'icon\': \'fa fa-check\', \'delay\': 3000 }]) );\
+               }\
+            });\
+            }\
         });\
-		//END_RUNE_YOUTUBE_MOD' $file
+        //END_RUNE_YOUTUBE_MOD' $file
 			
 			
 echo -e "$bar Creating YouTube storage directory ..."
