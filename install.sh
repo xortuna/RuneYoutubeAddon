@@ -88,8 +88,7 @@ echo $file
             </div>\
         </div>\
     </div>\
-</div>'
-	$file
+</div>' $file
 
 echo -e "$bar Modify files ..."
 file=/srv/http/assets/js/runeui.js
