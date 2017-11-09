@@ -11,4 +11,6 @@ Available via the rune Audio Addons menu
 
 * Expanded filesystem (or you'll only be able to store 10 songs)
 
+![some other image](https://i.imgur.com/atUvKyK.png "Youtube addon")
+
 ![some image](http://i.imgur.com/ZMBU3ft.png "Youtube addon")
