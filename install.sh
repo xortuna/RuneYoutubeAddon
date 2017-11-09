@@ -18,7 +18,7 @@ getinstallzip
 ### template - function: (optional) rank miror servers and 'pacman -Sy' before install packages
 rankmirrors
 
-command -v foo >/dev/null 2>&1 || { echo -e "$warn ERROR: ffmpeg is not installed, please run the MPM upgrade addon first." >&2; exit 1; }
+command -v ffmpeg >/dev/null 2>&1 || { echo -e "$warn ERROR: ffmpeg is not installed, please run the MPM upgrade addon first." >&2; exit 1; }
 
 ### PACMAN ### 
 echo -e "$bar Installing youtube-dl..."
