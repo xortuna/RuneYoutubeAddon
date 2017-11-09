@@ -23,7 +23,7 @@ rm -v /usr/local/bin/tubeplaylist
 echo -e "$bar Restore files ..."
 file=/srv/http/app/templates/playback.php
 echo $file
-sed -i -e $'/<button id="pl-import-youtube" class="btn btn-default" type="button" title="Import a playlist or video from youtube." data-toggle="modal" data-target="#modal-pl-youtube"><i class="fa fa-youtube-play"><\/i><\/button> d\
+sed -i -e $'/<button id="pl-import-youtube" class="btn btn-default" type="button" title="Import a playlist or video from youtube." data-toggle="modal" data-target="#modal-pl-youtube"><i class="fa fa-youtube-play"><\/i><\/button>/ d\
 ' -e $'/<div id="modal-pl-youtube" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-pl-youtube-label" aria-hidden="true">\
     <div class="modal-dialog">\
         <div class="modal-content">\
