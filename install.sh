@@ -125,8 +125,6 @@ chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
 
 
-#Check dependancies
-echo -e "$warn WARNING: Check you have expanded root FS or you will only be able to store 10 songs!"
 
 
 # end custom script --------------------------------------------------------------------------------<<<
@@ -136,5 +134,5 @@ installfinish $@
 
 clearcache
 
-# extra info if any
-title -nt "extra info"
+#Check dependancies
+echo -e "$bar #### Check you have expanded root FS or you will only be able to store 10 songs ####"
