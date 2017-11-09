@@ -124,12 +124,9 @@ chown http:http /usr/local/bin/tube
 chown http:http /usr/local/bin/tubeplaylist
 chown http:http /mnt/MPD/LocalStorage/Youtube
 
-free=$(df -k / | tail -1 | awk '{print $4}')
 
 #Check dependancies
-if [[ $free -lt 25000000  ]]; then
-	echo -e "$warn WARNING: Expand root FS or you will only be able to store 10 songs!"
-fi
+echo -e "$warn WARNING: Check you have expanded root FS or you will only be able to store 10 songs!"
 
 
 # end custom script --------------------------------------------------------------------------------<<<
