@@ -24,8 +24,8 @@ command -v ffmpeg >/dev/null 2>&1 || { echo -e "$warn ERROR: ffmpeg is not insta
 gitpath=https://github.com/xortuna/RuneYoutubeAddon/raw/master/
 
 ### PACMAN ### 
-echo -e "$bar Installing youtube-dl..."
-pacman -S --noconfirm youtube-dl
+echo -e "$bar Installing youtube-dl and atomicparsley..."
+pacman -S --noconfirm youtube-dl atomicparsley
 
 ### PHP Script ###
 echo -e "$bar Creating web files..."
@@ -58,10 +58,10 @@ catch (Exception $e) {
 ### Tube ###
 echo -e "$bar Creasting bash scripts..."
 echo $'#!/bin/bash
-youtube-dl --no-mtime --restrict-filenames -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 && mpc update --wait LocalStorage/Youtube && VV=$(ls /mnt/MPD/LocalStorage/Youtube/*.description -t | head -n1) && VV=$(basename $VV .description) && mpc add "LocalStorage/Youtube/$VV.m4a" && echo $VV && chown -R http:http /mnt/MPD/LocalStorage/Youtube/$VV.*' >> /usr/local/bin/tube
+youtube-dl --no-mtime --embed-thumbnail --restrict-filenames -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 && mpc update --wait LocalStorage/Youtube && VV=$(ls /mnt/MPD/LocalStorage/Youtube/*.description -t | head -n1) && VV=$(basename $VV .description) && mpc add "LocalStorage/Youtube/$VV.m4a" && echo $VV && chown -R http:http /mnt/MPD/LocalStorage/Youtube/$VV.*' >> /usr/local/bin/tube
 ### Tube playlist ###
 echo $'#!/bin/bash
-youtube-dl --no-mtime --restrict-filenames --ignore-errors -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 ; mpc update --wait LocalStorage/Youtube
+youtube-dl --no-mtime --embed-thumbnail --restrict-filenames --ignore-errors -o \'/mnt/MPD/LocalStorage/Youtube/%(title)s.%(ext)s\' --write-description -f "bestaudio[ext=m4a]" $1 ; mpc update --wait LocalStorage/Youtube
 
 (IFS=\'
 \'
